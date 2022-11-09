@@ -1,8 +1,10 @@
+import { JobList } from "./pages/job-list"
+
 function App() {
 
   return (
-    <div className="App">
-      <h1 className="text-3xl underline">Vite</h1>
+    <div className="App font-proxima bg-bgdark">
+      <JobList />
     </div>
   )
 }
