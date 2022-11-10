@@ -3,7 +3,7 @@ export interface ILocation {
   long: number;
 }
 
-export interface ServerResponse {
+export interface IJobItem {
   id: string;
   name: string;
   email: string;
@@ -19,3 +19,7 @@ export interface ServerResponse {
   description: string;
   employment_type: string[];
 }
+
+export interface IListItemProps {
+  id: string
+} 
