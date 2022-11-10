@@ -9,12 +9,13 @@ export const jobsApi = createApi({
     baseUrl: `https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=${API_KEY}`
   }),
   endpoints: build => ({
+
     getJobs: build.query<IJobItem[], null>({
       query: () => ({
         url: ``
       })
     })
-     
+    
   })
 })
 

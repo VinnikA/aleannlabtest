@@ -1,4 +1,5 @@
 import { ListItem } from "../../components/list-item"
+import { Pagination } from "../../components/pagination"
 import { useGetJobsQuery } from "../../store/jobs/jobs.api"
 
 export const JobList = () => {
@@ -14,6 +15,7 @@ export const JobList = () => {
       {data?.map(item => (
         <ListItem {...item} />
       ))}
+      <Pagination />
     </div>
   )
 }
