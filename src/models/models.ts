@@ -22,4 +22,10 @@ export interface IJobItem {
 
 export interface IListItemProps {
   id: string
-} 
+}
+
+export interface IPaginationProps {
+  allPages: number,
+  activePage: number,
+  changePage: (num: number) => void
+}
