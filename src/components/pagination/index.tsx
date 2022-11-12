@@ -1,30 +1,23 @@
-import { useState } from 'react'
+import { IPaginationProps } from "../../models/models"
+import { getPages } from "../../helpers"
 
-export const Pagination = () => {
+export const Pagination = (props: IPaginationProps) => {
 
-  const pages = 18
+  const { allPages, activePage, changePage } = props
 
-  const [activePage, setActivePage] = useState(1)
-
-  const getPages = (n: number) => {
-    if(activePage <= 4) return [1,2,3,4,5,'...',n] 
-    if(activePage >= n-3) return [1,'...',n-4, n-3, n-2, n-1, n] 
-    return [1, '...', activePage-1, activePage, activePage+1, '...', n]
-  }
-
-  const arr = getPages(pages);
+  const pages = getPages(activePage, allPages);
 
   const currentStyle = (item: number | string) => 
     `flex items-center justify-center w-6 h-full font-bold cursor-pointer border-b-2 border-t-2 border-white md:w-8 md:text-xl${item === activePage ? ' text-dark border-b-dark' : ' text-light'}`
 
-  const handleClick = (item: number) => setActivePage(item)
+  const handleClick = (item: number) => changePage(item)
 
   const back = () => {
-    if(activePage > 1) setActivePage(activePage-1)
+    if(activePage > 1) changePage(activePage-1)
   }
 
   const forward = () => {
-    if(activePage < pages) setActivePage(activePage+1)
+    if(activePage < allPages) changePage(activePage+1)
   }
 
   return (
@@ -41,7 +34,7 @@ export const Pagination = () => {
 
       <div className='w-px h-5 mr-10 md:mr-12 bg-bgdark'></div>
 
-      {arr.map((item, index) => {
+      {pages.map((item, index) => {
         if(typeof item === 'number') {
           return (
           <div 
