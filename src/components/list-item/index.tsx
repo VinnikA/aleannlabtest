@@ -1,8 +1,10 @@
 import { posted } from "../../helpers"
+import { Link } from "react-router-dom"
 
 export const ListItem = (props: any) => {
-  console.log(props)
-  const {title, address, name, pictures, createdAt} = props
+
+  const {id,title, address, name, pictures, createdAt} = props
+
   return (
     <div className='w-full flex flex-col md:flex-row h-[206px] md:h-[164px] bg-bglight md:bg-white mb-2 p-4 md:py-6 md:px-4 rounded-lg shadow'>
 
@@ -23,7 +25,9 @@ export const ListItem = (props: any) => {
         </div>
         <div className="w-3/4 flex flex-col justify-between">
           <div>
-            <h2 className='text-lg text-dark mb-1 md:text-xl md:font-bold'>{name}</h2>
+            <Link to={`/details/${id}`}>
+              <h2 className='text-lg text-dark mb-1 md:text-xl md:font-bold'>{name}</h2>
+            </Link>
             <p className='text-light'>{title}</p>
           </div>
           <div className='flex gap-2 text-light'>

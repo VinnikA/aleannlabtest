@@ -22,7 +22,7 @@ export const JobList = () => {
       {isLoading && <p className="text-center">Loadind...</p>}
       {isError && <p className="text-red-600 text-center">Some error occurred!</p>}
       {onePageData?.map(item => (
-        <ListItem {...item} />
+        <ListItem key={item.id} {...item} />
       ))}
       {pages > 0 && <Pagination changePage={changePage} activePage={activePage}  allPages={pages}/>}
     </div>
